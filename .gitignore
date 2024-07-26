@@ -1,0 +1,86 @@
+# Node.js and React
+node_modules/
+build/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnp.*
+.pnp
+.cache/
+.env
+*.tsbuildinfo
+
+# TypeScript
+*.d.ts
+*.tsbuildinfo
+
+# VS Code
+.vscode/
+
+# Flask and Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.env
+venv/
+.env/
+instance/
+test_stuff.py
+
+# MySQL
+*.sql
+*.sql.gz
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Docker
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Heroku
+*.heroku.yml
+
+# Log files
+*.log
+
+# Environment files
+*.env
+.env.*
+*.env.local
+*.env.development
+*.env.test
+
+# Custom IDEs
+.idea/
+
+# Test coverage
+coverage/
+*.cover
+*.py,cover
+*.egg-info/
+.eggs/
+*.egg
+*.pyo
+
+# Caches
+*.cache
+*.tmp
+
+# Sphinx documentation
+docs/_build/
+build/
