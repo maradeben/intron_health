@@ -1,15 +1,53 @@
+#!/usr/bin/env python3.12
 from flask import Flask
-import sqlite3
+from flask_cors import CORS
 
-con = sqlite3.connect('intron_db')
-print(con)
-print('c')
+from database import db
+from models import Doctor
+
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///intron.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# initialize SQLAlchemy with flask app
+db.init_app(app)
+
+def create_db():
+    """ create db with app context """
+    with app.app_context():
+        db.create_all()
+
+CORS(app)
+
 
 @app.route('/')
 def home():
-    return 'Hello World!'
+    return {'message': 'Hello World!'}
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+""" auth routes """
+@app.route('/login')
+def login():
+    return "Login"
+
+@app.route('/logout')
+def logout():
+    return "Logout"
+
+@app.route('/signup')
+def signup():
+    return "Signup"
+
+@app.get('/doctors')
+def doctor():
+    """
+    Returns a list of doctors if email is not specified, else
+    returns doctor with specified email
+    """
+    result = Doctor.query.first()
+    print(result.first)
+    return(result.first)
+
+if __name__ == '__main__':
+    create_db()
+    app.run(debug=True)
